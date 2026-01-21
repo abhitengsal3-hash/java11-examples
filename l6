@@ -1,6 +1,5 @@
- 
 
- pipeline {
+pipeline {
     agent any
 
     triggers {
@@ -15,7 +14,7 @@
     stages {
         stage('Clone') {
             steps {
-                git branch: 'master', url: 'https://github.com/abhitengsal3-hash/java11-examples.git'
+                git branch: 'main', url: 'https://github.com/abhitengsal3-hash/java11-examples.git'
             }
         }
 
