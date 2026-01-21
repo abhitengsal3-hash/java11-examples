@@ -4,8 +4,8 @@ pipeline{
     agent any
     
     triggers {
-        githubpush()
-    }
+        githubpush
+   }
     tools {
   jdk 'openjdk'
   maven 'maven'
