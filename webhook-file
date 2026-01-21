@@ -1,0 +1,34 @@
+
+
+
+
+pipeline {
+    agent any
+
+    tools {
+        jdk 'openjdk'
+        maven 'maven'
+    }
+
+    triggers {
+        githubPush()
+    }
+
+    stages {
+        stage('clone') {
+            steps {
+                git 'https://github.com/abhitengsal3-hash/java11-examples.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('archive') {
+            steps {
+                archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+            }
+        }
+    }        
+  }
